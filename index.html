@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRENDIVAAH | Luxury Streetwear & Formals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-main">
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="logo">
+                <div class="logo-box">TV</div>
+                <h1>TRENDIVAAH</h1>
+            </div>
+            <div class="header-right">
+                <i class="fas fa-search"></i>
+                <div class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="count">0</span></div>
+            </div>
+        </div>
+        <nav id="navMenu" class="mobile-nav">
+            <a href="#" onclick="toggleMenu()">Home</a>
+            <a href="#categories" onclick="toggleMenu()">Categories</a>
+            <a href="#" onclick="toggleMenu()">Contact</a>
+            <a href="javascript:void(0)" id="loginNav" onclick="openAuth()">Login</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h2>TRENDS THAT DEFINE YOU</h2>
+            <p>New Season Arrival | Winter '25</p>
+            <button class="btn-gold" onclick="document.getElementById('categories').scrollIntoView()">Explore Collection</button>
+        </div>
+    </section>
+
+    <main id="categories" class="container">
+        </main>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('productModal')">&times;</span>
+            <div class="modal-grid">
+                <div class="zoom-container">
+                    <img id="modalImg" src="" alt="Product">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle">Product Title</h2>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <h3 id="modalPrice" class="gold-text">₹0.00</h3>
+                    <p>Exclusive design by TRENDIVAAH. Premium cotton blend, breathable fabric, and tailored fit for maximum comfort.</p>
+                    <div class="action-btns">
+                        <button class="btn-outline" onclick="addToCart()">Add to Cart</button>
+                        <button class="btn-gold" onclick="openCheckout()">Buy Now</button>
+                        <button class="btn-dark" onclick="orderWhatsApp()">Order via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content auth-box">
+            <span class="close" onclick="closeModal('authModal')">&times;</span>
+            <div class="auth-tabs">
+                <button id="loginTab" class="active" onclick="switchAuth('login')">Login</button>
+                <button id="signupTab" onclick="switchAuth('signup')">Sign Up</button>
+            </div>
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <div id="nameField" style="display:none">
+                    <input type="text" placeholder="Full Name" id="regName">
+                </div>
+                <input type="email" placeholder="Email Address" id="authEmail" required>
+                <input type="password" placeholder="Password" id="authPass" required>
+                <button type="submit" class="btn-gold" id="authBtn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="checkoutOverlay" class="checkout-overlay">
+        <div class="checkout-card">
+            <h2><i class="fas fa-shield-alt"></i> Secure Checkout</h2>
+            <div class="checkout-body">
+                <div class="checkout-info">
+                    <label>Shipping Address</label>
+                    <textarea id="shipAddr" placeholder="Enter your full address..."></textarea>
+                    <label>Contact Number</label>
+                    <input type="text" value="7757007795" id="shipPhone">
+                </div>
+                <div class="checkout-summary">
+                    <p>Item: <span id="summaryName"></span></p>
+                    <p>Total: <span id="summaryPrice" class="gold-text"></span></p>
+                    <button class="btn-gold" onclick="confirmPurchase()">Confirm Order</button>
+                    <button class="btn-outline" onclick="closeCheckout()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-icons">
+        <a href="https://wa.me/7757007795" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/trendivaah" target="_blank" class="ig"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>TRENDIVAAH</h3>
+                <p>Modern Fashion, Timeless Style.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Email: ayyantakildar83@gmail.com</p>
+                <p>Phone: 7757007795</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 TRENDIVAAH. All Rights Reserved.</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
